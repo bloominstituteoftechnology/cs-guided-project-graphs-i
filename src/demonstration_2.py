@@ -26,6 +26,7 @@ Input: grid = [
 Output: 3
 """
 from collections import deque
+# time complexity for this problem can be improved 
 
 def numIslands(grid):
     pass
@@ -46,19 +47,20 @@ def numIslands(grid):
         # --> skip it
     # -- use a double 'for' loop, a zero skip
     num_islands = 0
-    visited = set()
-    for row_idx in range(len(grid)):
-      for col_idx in range(len(grid[row_idx])):
+    visited = set() # this is what's taking up space: [space complexity] 0(number of 1s)
+    for row_idx in range(len(grid)): # m = len(grid) --> for m*n
+      for col_idx in range(len(grid[row_idx])): # n = len(grid[0]) --> for m*n
         # if it's visited, skip # TODO
-        if grid[row_idx][col_idx] == 0:
+        if grid[row_idx][col_idx] == "0":
           # skip it
             continue
-        if grid[row_idx][col_idx] == 1:
+        if grid[row_idx][col_idx] == "1":
             island_nodes = bfs(grid, (row_idx, col_idx))
             # need to add it to visitied
             visited.update(island_nodes)
             num_islands += 1
 
+   
     # return the number of islands
     return num_islands
     # row is the first index (into the outer array)
@@ -68,7 +70,6 @@ def numIslands(grid):
 def bfs(grid, starting_location):
     # starting_location is a TUPLE # TODO (row_idx, col_idx) it is unique, identifiable, and easily manipulated. 
     # From starting location, go out in each direction and add to visited array 
-    pass
     # need a 'q' and a 'visited' array
     queue = []
     num_islands = 0
@@ -116,7 +117,7 @@ def is_location_valid(grid, row, col):
     if not ( 0 < col < len(grid[row])): # why are we doing this for row vs col
         return False
     print(grid[row][col])
-    if grid[row][col] == 0:
+    if grid[row][col] == "0":
         return False
 
     return True
