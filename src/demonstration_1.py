@@ -8,9 +8,6 @@ have the same color).
 
 The number of colors necessary to complete a legal coloring is always one more
 than the graph's maximum degree.
-
-*Note: We can color a graph in linear time and space. Also, make sure that your
-solution can handle a loop in a reasonable way.*
 """
 # Definition for a graph node.
 class GraphNode:
