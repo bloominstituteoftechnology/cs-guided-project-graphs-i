@@ -25,8 +25,6 @@ Input: grid = [
 ]
 Output: 3
 """
-from collections import deque
-
 def numIslands(grid):
     # Your code here
 
